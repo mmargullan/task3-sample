@@ -1,0 +1,22 @@
+package endterm.service
+
+import endterm.model.Driver
+import endterm.repository.DriverRepository
+import org.springframework.stereotype.Service
+
+@Service
+class DriverService(
+    private val driverRepository: DriverRepository
+) {
+
+    fun updateDriver(id: Long, body: Driver): Driver {
+        val driver = driverRepository.findById(id).get()
+        body.name?.let { driver.name = it }
+        body.age?.let { driver.age = it }
+        body.nationality?.let { driver.nationality = it }
+        body.team?.let { driver.team = it }
+        driverRepository.save(driver)
+        return driver
+    }
+
+}
