@@ -1,11 +1,13 @@
 package endterm.controller
 
+import endterm.model.DriverDto
 import endterm.model.Team
 import endterm.repository.TeamRepository
 import endterm.service.TeamService
 import org.springframework.web.bind.annotation.*
 
 @RestController
+@RequestMapping("/team")
 class TeamController(
     private val teamService: TeamService,
     private val teamRepository: TeamRepository
@@ -29,6 +31,11 @@ class TeamController(
     @PutMapping("/{id}")
     fun updateTeam(@PathVariable id: Long, @RequestBody body: Team): Team {
         return teamService.updateTeam(id, body)
+    }
+
+    @GetMapping("/api/{id}")
+    fun getDriver(@PathVariable("id") id: Long): DriverDto {
+        return teamService.find(id)
     }
 
 }

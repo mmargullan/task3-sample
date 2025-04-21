@@ -14,7 +14,7 @@ class DriverService(
         body.name?.let { driver.name = it }
         body.age?.let { driver.age = it }
         body.nationality?.let { driver.nationality = it }
-        body.team?.let { driver.team = it }
+        body.teamId?.let { driver.teamId = it }
         driverRepository.save(driver)
         return driver
     }

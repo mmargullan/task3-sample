@@ -1,1 +1,1 @@
-rootProject.name = "task-sample"
+rootProject.name = "eureka-server"

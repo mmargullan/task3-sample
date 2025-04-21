@@ -16,8 +16,4 @@ class Team {
     @Column
     var country: String? = null
 
-    @Column
-    @ElementCollection
-    var driverList: ArrayList<DriverDto> ?= null
-
 }
