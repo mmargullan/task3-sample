@@ -1,4 +1,4 @@
-package endterm.model
+package endterm.model.dto
 
 class DriverDto {
     var name: String? = null

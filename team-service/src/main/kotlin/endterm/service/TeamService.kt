@@ -4,6 +4,7 @@ import endterm.feign.DriverClient
 import endterm.model.DriverDto
 import endterm.model.Team
 import endterm.repository.TeamRepository
+import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
 
 @Service
@@ -20,8 +21,10 @@ class TeamService(
         return team
     }
 
-    fun find(id: Long): DriverDto {
-        return driverClient.getDriver(id)
+    fun getTeam(id: Long): ResponseEntity<Any> {
+        val team = teamRepository.findById(id).get()
+        val drivers = driverClient.getDrivers(id)
+        return ResponseEntity.ok().body(mapOf("team" to team, "drivers" to drivers))
     }
 
 }

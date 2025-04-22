@@ -32,4 +32,9 @@ class DriverController(
         return driverService.updateDriver(id, body)
     }
 
+    @GetMapping("/getByTeamId/{teamId}")
+    fun getByTeamId(@PathVariable teamId: Long): List<Driver> {
+        return driverRepository.findDriversByTeamId(teamId)
+    }
+
 }

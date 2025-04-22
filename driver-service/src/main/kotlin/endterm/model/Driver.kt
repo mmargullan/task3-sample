@@ -20,6 +20,6 @@ class Driver {
     var nationality: String? = null
 
     @Column
-    var teamId: String? = null
+    var teamId: Long? = null
 
 }
